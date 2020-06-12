@@ -23,13 +23,14 @@ body {
      font-weight: bold;
    }
   #div1 {
+    visibility: hidden;
   position: absolute;
   width: 300.1499938964844px;
   height: 250px;
-  padding: 15px 15px;
+  padding: 40px 20px;
   background: white;
   left: 50%;
-  top: 50%;
+  bottom: 5%;
   transform: translate(-50%, -50%);
   text-align: center; 
   border-radius: 20px;
@@ -53,16 +54,11 @@ body {
   width: 90%;
   height: 8px;
   border-radius: 20px;
-  margin: 13px 0;
-  -webkit-transition: 0.3s;
+  margin: 13px 0; 
   }
   #inp1, #inp2, #inp3 {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  /* position: absolute; */
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%); */
+  -moz-appearance: none; 
   background: linear-gradient();
   }
   #inp1::-webkit-slider-thumb {
@@ -107,8 +103,7 @@ body {
       border: solid 1px silver;
       background: #ffffff;
       cursor: pointer;
-      margin:13px 0;
-      -webkit-transition: 0.3s;
+      margin:13px 0; 
   }
   #copy:hover {
       background: #f1f1f1;
@@ -134,12 +129,7 @@ svg {
   transform: translate(-50%,-50%);
 }
 path {
-  fill: none;
-  -webkit-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
-  -moz-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
-  -o-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
-  -ms-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
-  transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+  fill: none; 
   stroke-width: 40px;
   stroke-linecap: round;
   stroke: rgb(71, 71, 71);
@@ -152,6 +142,10 @@ path#bottom {
 }
 path#middle {
   stroke-dasharray: 240px 240px;
+}
+ 
+.cross #div1 { 
+  visibility: visible;
 }
 .cross path#top,
 .cross path#bottom {
