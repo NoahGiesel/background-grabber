@@ -117,9 +117,9 @@ function App() {
   }); 
    
   return (
-    <div className="App" id="container">     
+    <div className="App" id="container" >     
     <div id="view"></div>
-      <div  onClick={handleClick}> 
+      <div  onClick={handleClick} > 
         <svg viewBox="0 0 800 600">
           <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
           <path d="M300,320 L540,320" id="middle"></path>
@@ -127,7 +127,7 @@ function App() {
         </svg>
       </div>
       <div id="div1">
-        <div className="container">
+        <div className="container" >
 
         <div id="colors">
         <button id="copy">  content_copy </button>
