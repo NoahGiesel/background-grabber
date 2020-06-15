@@ -18,8 +18,10 @@ function App() {
     var inp2 = $("inp2");
     var inp3 = $("inp3");
     var hsl = $("hsl");
+    var rgb = $("rgb");
     var view = $("view");
-    var copy = $("copy");
+    var copyHSL = $("copyHSL");
+    var copyRGB = $("copyRGB");
     var root = document.documentElement;
     var h, s, l;
     h = [];
@@ -33,7 +35,7 @@ function App() {
       for (var i = 0; i < 360; i++) {
         h.push("hsl(" + (i + 1) + ", " + 100 + "%, " + 50 + "%)");
       }
-      for (var i = 0; i < 100; i++) {
+      for (let i = 0; i < 100; i++) {
         s.push("hsl(" + inp1.value + ", " + i + "%, 50%)");
         l.push("hsl(" + inp1.value + ", 100%, " + i + "%)");
       }
@@ -85,12 +87,21 @@ function App() {
     hsl.oninput = convert;
     
     
-    copy.onclick = function() { 
+    copyHSL.onclick = function() { 
       const el = document.createElement('textarea');
       el.value = hsl.innerHTML;
+       document.body.appendChild(el);
+      el.select(); 
+      document.execCommand('copyHSL');
+      document.body.removeChild(el);   
+    };
+    
+    copyRGB.onclick = function() { 
+      const el = document.createElement('textarea');
+      el.value = rgb.innerHTML; 
       document.body.appendChild(el);
       el.select();
-      document.execCommand('copy');
+      document.execCommand('copyRGB');
       document.body.removeChild(el);  
     };
 
@@ -110,7 +121,7 @@ function App() {
       update();
       console.log(inp2.value < parseFloat(str[1]));
     }
-    
+      
   }
   useEffect(() => {
     verifica();
@@ -130,10 +141,18 @@ function App() {
         <div className="container" >
 
         <div id="colors">
-        <button id="copy">  content_copy </button>
-            <p id="hsl">rgb(255, 255, 255)</p> 
-            <p id="rgb">rgb(255, 255, 255)</p> 
-            <p id="hex">#ffffff</p>
+          <div className="two-col">
+            <p id="hsl">hsl(255, 255, 255)</p> 
+            <button className="copy" id="copyHSL"> 📖 </button> 
+          </div>
+        <div className="two-col"> 
+            <p id="rgb">rgb(255, 255, 255)</p>  
+            <button  className="copy" id="copyRGB"> 📖 </button> 
+          </div>
+          <div className="two-col">
+            <p id="hex">#ffffff</p>  
+            <button  className="copy" id="copy"> 📖 </button> 
+          </div> 
             <input className="inp" type="range" id="inp1" min="0" max="360"  draggable="false"/>
             <input className="inp" type="range" id="inp2" min="0" max="100"   draggable="false"/>
             <input className="inp" type="range" id="inp3" min="0" max="100"  draggable="false"/>
