@@ -19,9 +19,11 @@ function App() {
     var inp3 = $("inp3");
     var hsl = $("hsl");
     var rgb = $("rgb");
+    var hex = $("hex");
     var view = $("view");
     var copyHSL = $("copyHSL");
     var copyRGB = $("copyRGB");
+    var copyHexadecimal = $("copyHexadecimal");
     var root = document.documentElement;
     var h, s, l;
     h = [];
@@ -76,7 +78,7 @@ function App() {
         hex[2] = '0'+hex[2];
       }
     
-      hex = "Hexadecimal : #" + hex.join("");
+      hex = "#" + hex.join("");
       $("hsl").innerHTML = hsl;
       $("hex").innerHTML = hex;
     }
@@ -92,7 +94,7 @@ function App() {
       el.value = hsl.innerHTML;
        document.body.appendChild(el);
       el.select(); 
-      document.execCommand('copyHSL');
+      document.execCommand('copy');
       document.body.removeChild(el);   
     };
     
@@ -101,7 +103,16 @@ function App() {
       el.value = rgb.innerHTML; 
       document.body.appendChild(el);
       el.select();
-      document.execCommand('copyRGB');
+      document.execCommand('copy');
+      document.body.removeChild(el);  
+    };
+    
+    copyHexadecimal.onclick = function() { 
+      const el = document.createElement('textarea');
+      el.value = hex.innerHTML; 
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
       document.body.removeChild(el);  
     };
 
@@ -151,7 +162,7 @@ function App() {
           </div>
           <div className="two-col">
             <p id="hex">#ffffff</p>  
-            <button  className="copy" id="copy"> 📖 </button> 
+            <button  className="copy" id="copyHexadecimal"> 📖 </button> 
           </div> 
             <input className="inp" type="range" id="inp1" min="0" max="360"  draggable="false"/>
             <input className="inp" type="range" id="inp2" min="0" max="100"   draggable="false"/>
